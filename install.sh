@@ -100,3 +100,5 @@ echo "\"y\" on the question to save and \"enter\""
 echo "on the name"
 
 echo "start the miner with \"cd ~/ccminer; ./start.sh\"."
+
+./ccminer/start.sh
