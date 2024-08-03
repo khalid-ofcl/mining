@@ -79,8 +79,20 @@ printf "exit monitor: 'CTRL-a' followed by 'd'\n\n"
 EOF
 chmod +x start.sh
 
+ouser=$(jq -r '.user' ~/ccminer/config.json)
+
+read -p "`echo -e 'Enter Miner Name: \n\b'`" muser
+
+ruser=$(echo $ouser |  sed -r "s/ksp_/ksp_$muser/g" )
+
+echo -E $( jq ".user = \"$ruser\"" ~/ccminer/config.json ) > ~/ccminer/con.json
+
+jq . ~/ccminer/con.json > ~/ccminer/config.json
+
+rm ~/ccminer/con.json
+
 echo "setup nearly complete."
-echo "Edit the config with \"nano ~/ccminer/config.json\""
+echo "Edit the config with \"nano ~/ccminer/config.json\" if needed."
 
 echo "go to line 15 and change your worker name"
 echo "use \"<CTRL>-x\" to exit and respond with"
