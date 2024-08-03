@@ -119,6 +119,15 @@ rm con.json
 EOF
 chmod +x nm.sh
 
+
+cat << EOF > ~/s.sh
+
+#!/bin/sh
+./ccminer/start.sh
+
+EOF
+chmod +x s.sh
+
 ouser=$(jq -r '.user' ~/ccminer/config.json)
 
 read -p "`echo -e 'Enter Miner Name: \n\b'`" muser
