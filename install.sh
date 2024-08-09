@@ -1,4 +1,7 @@
 #!/bin/sh
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install bash sudo jq wget
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install jq libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget
